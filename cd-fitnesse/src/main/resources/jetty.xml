@@ -1,0 +1,15 @@
+<?xml version="1.0"  encoding="ISO-8859-1"?>
+<!DOCTYPE Configure PUBLIC "-//Mort Bay Consulting//DTD Configure//EN" "http://jetty.mortbay.org/configure.dtd">
+
+<Configure id="Server" class="org.eclipse.jetty.server.Server">
+
+	<Call name="addConnector">
+		<Arg>
+			<New class="org.eclipse.jetty.server.nio.SelectChannelConnector"/>
+		</Arg>
+	</Call>
+
+	<Set name="stopAtShutdown">true</Set>
+	<Set name="gracefulShutdown">1000</Set>
+
+</Configure>

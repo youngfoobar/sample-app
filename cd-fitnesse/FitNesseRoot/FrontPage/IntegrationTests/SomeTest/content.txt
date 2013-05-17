@@ -1,0 +1,5 @@
+| import |
+| com.xebia.cd.demo.fitnesse |
+
+| script | some fixture |
+| check | message | something |

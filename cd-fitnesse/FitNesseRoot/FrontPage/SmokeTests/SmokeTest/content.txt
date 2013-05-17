@@ -1,0 +1,9 @@
+| import |
+| com.xebia.cd.demo.fitnesse |
+
+!| script | server fixture |
+| set service base uri | ${service.base.uri} |
+
+| script | demo fixture |
+| check | status | 200 |
+| check | body | =~/hello Xebia/ |

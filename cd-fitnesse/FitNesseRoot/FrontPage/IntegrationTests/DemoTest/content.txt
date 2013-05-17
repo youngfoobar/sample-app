@@ -1,0 +1,12 @@
+| import |
+| com.xebia.cd.demo.fitnesse |
+
+| script | server fixture |
+| start server |
+
+| script | demo fixture |
+| check | status | 200 |
+| check | body | =~/hello Xebia/ |
+
+| script | server fixture |
+| stop server |

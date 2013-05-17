@@ -1,0 +1,13 @@
+!define TEST_SYSTEM {slim}
+!define SLIM_PORT {0}
+
+!contents
+
+!*> Classpath settings
+
+!path ../cd-fitnesse/target/classes
+!path ../cd-common/target/classes
+
+!pomFile pom.xml@runtime
+
+*!

@@ -1,0 +1,2 @@
+#page header
+[[!img-r files/images/logo.png][FrontPage]]
