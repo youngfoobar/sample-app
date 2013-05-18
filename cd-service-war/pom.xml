@@ -14,19 +14,7 @@
 
 	<build>
 		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-war-plugin</artifactId>
-				<configuration>
-					<webResources>
-						<resource>
-							<directory>src/main/webapp</directory>
-							<include>*.jsp</include>
-							<filtering>true</filtering>
-						</resource>
-					</webResources>
-				</configuration>
-			</plugin>
+			<!-- EXERCISE: add the maven-war-plugin in order to build a proper war file -->
 		</plugins>
 	</build>
 

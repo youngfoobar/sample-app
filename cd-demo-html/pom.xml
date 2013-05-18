@@ -13,24 +13,10 @@
 
 	<build>
 		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-assembly-plugin</artifactId>
-				<executions>
-					<execution>
-						<id>build-zip</id>
-						<phase>package</phase>
-						<goals>
-							<goal>single</goal>
-						</goals>
-						<configuration>
-							<descriptors>
-								<descriptor>assembly.xml</descriptor>
-							</descriptors>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
+			<!-- EXERCISE: add plugin maven-assembly-plugin. Use the internet to find the groupId.
+					 Give the execution the id "build-zip" and make sure it will execute the 
+					 "single" goal in the "package" phase. let it use the assembly.xml descriptor
+			-->
 		</plugins>
 	</build>
 
