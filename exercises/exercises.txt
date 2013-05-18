@@ -1,0 +1,100 @@
+parent pom.xml
+- <module>cd-common</module> removed
+
+cd-common
+- removed <artifactId>cd-modules</artifactId>
+- EX: add dependency for junit
+
+cd-demo-html
+- EX: add "maven-assembly-plugin"
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>build-zip</id>
+						<phase>package</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+						<configuration>
+							<descriptors>
+								<descriptor>assembly.xml</descriptor>
+							</descriptors>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			
+cd-fitnesse
+- removed 
+		<!-- modules -->
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>cd-service-war</artifactId>
+			<type>war</type>
+		</dependency>
+
+- EX: add plugin "maven-dependency-plugin"
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>copy-wars</id>
+						<phase>package</phase>
+						<goals>
+							<goal>copy</goal>
+						</goals>
+						<configuration>
+							<stripVersion>true</stripVersion>
+							<artifactItems>
+								<artifactItem>
+									<groupId>${project.groupId}</groupId>
+									<artifactId>cd-service-war</artifactId>
+									<type>war</type>
+								</artifactItem>
+							</artifactItems>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+cd-fitnesse-runner
+- EX: add the maven-failsafe-plugin in order to run the integrations tests from SmokeIT.java
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-failsafe-plugin</artifactId>
+						<executions>
+							<execution>
+								<goals>
+									<goal>integration-test</goal>
+								</goals>
+							</execution>
+						</executions>
+						<configuration>
+							<includes>
+								<include>**/SmokeIT.java</include>
+							</includes>
+							<disableXmlReport>true</disableXmlReport>
+							<systemPropertyVariables>
+								<service.base.uri>${service.base.uri}</service.base.uri>
+							</systemPropertyVariables>
+						</configuration>
+					</plugin>
+
+cd-service-war
+- EX: add the maven-war-plugin in order to build a proper war file
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<configuration>
+					<webResources>
+						<resource>
+							<directory>src/main/webapp</directory>
+							<include>*.jsp</include>
+							<filtering>true</filtering>
+						</resource>
+					</webResources>
+				</configuration>
+			</plugin>
