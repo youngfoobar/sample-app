@@ -160,7 +160,26 @@
 			</properties>
 			<build>
 				<plugins>
-					<!-- EXERCISE: add the maven-failsafe-plugin in order to run the integrations tests from SmokeIT.java -->
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-failsafe-plugin</artifactId>
+            <executions>
+              <execution>
+                <goals>
+                  <goal><!-- EX: what goal should the failsafe plugin executing? --></goal>
+                </goals>
+              </execution>
+            </executions>
+            <configuration>
+              <includes>
+                <include><!-- EX: what tests should be executed? --></include>
+              </includes>
+              <disableXmlReport>true</disableXmlReport>
+              <systemPropertyVariables>
+                <service.base.uri>${service.base.uri}</service.base.uri>
+              </systemPropertyVariables>
+            </configuration>
+          </plugin>
 					<plugin>
 						<groupId>net.kennychua</groupId>
 						<artifactId>maven-urlpoller-plugin</artifactId>

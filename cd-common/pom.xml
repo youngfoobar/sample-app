@@ -4,7 +4,7 @@
 
 	<parent>
 		<groupId>com.xebia.cd-demo</groupId>
-		<artifactId></artifactId>
+		<artifactId>cd-modules</artifactId>
 		<version>1.0.0.0-SNAPSHOT</version>
 	</parent>
 
@@ -24,7 +24,7 @@
 		</dependency>
 		
 		<!-- test scope -->
-		<!-- EXERCISE: add dependency for junit -->
+		<!-- EX: add dependency for junit -->
 
 	</dependencies>
 

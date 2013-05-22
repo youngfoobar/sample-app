@@ -14,7 +14,7 @@
 
 	<build>
 		<plugins>
-			<!-- EXERCISE: add the maven-war-plugin in order to build a proper war file -->
+			<!-- EX: add the maven-war-plugin in order to build a proper war file -->
 
       <plugin>
         <groupId>org.mortbay.jetty</groupId>

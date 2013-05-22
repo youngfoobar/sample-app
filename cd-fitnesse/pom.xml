@@ -74,13 +74,36 @@
 					</execution>
 				</executions>
 			</plugin>
-			<!-- EXERCISE: add plugin "maven-dependency-plugin" to copy the dependency cd-service-war.war to 
-						${project.build.directory}/dependency . Strip the version from the artifact-->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>copy-wars</id>
+            <phase><!-- EX: In what phase should this plugin be executed? --></phase>
+            <goals>
+              <goal><!-- EX: what goal should be executed? --></goal>
+            </goals>
+            <configuration>
+              <stripVersion>true</stripVersion>
+              <artifactItems>
+                <artifactItem>
+                  <groupId>${project.groupId}</groupId>
+                  <artifactId>cd-service-war</artifactId>
+                  <type>war</type>
+                </artifactItem>
+              </artifactItems>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
 		</plugins>
 	</build>
 
 	<dependencies>
-		
+    <!-- modules -->
+    <!-- EX: add dependency for the sub module that delivers the war file as artifact  -->
+
 		<!-- fitnesse -->
 		<dependency>
 			<groupId>org.fitnesse</groupId>

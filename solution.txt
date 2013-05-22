@@ -1,0 +1,79 @@
+parent pom.xml
+- <module>cd-common</module> removed
+
+cd-common
+- EX: add dependency for junit
+
+cd-fitnesse
+- EX: add dependency for the sub module that delivers the war file as artifact
+		<!-- modules -->
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>cd-service-war</artifactId>
+			<type>war</type>
+		</dependency>
+
+- EX: In what phase should this plugin be executed?
+  EX: what goal should be executed?
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>copy-wars</id>
+						<phase>package</phase>
+						<goals>
+							<goal>copy</goal>
+						</goals>
+						<configuration>
+							<stripVersion>true</stripVersion>
+							<artifactItems>
+								<artifactItem>
+									<groupId>${project.groupId}</groupId>
+									<artifactId>cd-service-war</artifactId>
+									<type>war</type>
+								</artifactItem>
+							</artifactItems>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+cd-fitnesse-runner
+- EX: what goal should the failsafe plugin executing and what tests should be executed?
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-failsafe-plugin</artifactId>
+						<executions>
+							<execution>
+								<goals>
+									<goal>integration-test</goal>
+								</goals>
+							</execution>
+						</executions>
+						<configuration>
+							<includes>
+								<include>**/SmokeIT.java</include>
+							</includes>
+							<disableXmlReport>true</disableXmlReport>
+							<systemPropertyVariables>
+								<service.base.uri>${service.base.uri}</service.base.uri>
+							</systemPropertyVariables>
+						</configuration>
+					</plugin>
+
+cd-service-war
+- EX: add the maven-war-plugin in order to build a proper war file
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<configuration>
+					<webResources>
+						<resource>
+							<directory>src/main/webapp</directory>
+							<include>*.jsp</include>
+							<filtering>true</filtering>
+						</resource>
+					</webResources>
+				</configuration>
+			</plugin>
