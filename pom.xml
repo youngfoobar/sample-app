@@ -32,8 +32,9 @@
 	</properties>
 
 	<modules>
-    <!-- EX: add dependency for cd-common -->
+	<!-- EX: add dependency for cd-common -->
 		<module>cd-service-war</module>
+		<module>cd-common</module>
 		<module>cd-demo-sql</module>
 		<module>cd-demo-html</module>
 		<module>cd-demo-dar</module>
