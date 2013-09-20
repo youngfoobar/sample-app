@@ -166,13 +166,13 @@
             <executions>
               <execution>
                 <goals>
-                  <goal><!-- EX: what goal should the failsafe plugin executing? --></goal>
+                  <goal>integration-test<!-- EX: what goal should the failsafe plugin executing? --></goal>
                 </goals>
               </execution>
             </executions>
             <configuration>
               <includes>
-                <include><!-- EX: what tests should be executed? --></include>
+                <include>**/SmokeIT.java<!-- EX: what tests should be executed? --></include>
               </includes>
               <disableXmlReport>true</disableXmlReport>
               <systemPropertyVariables>
